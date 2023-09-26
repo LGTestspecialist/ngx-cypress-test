@@ -1,6 +1,7 @@
 
 
 describe('Walter Living Testsuite', () => {
+    // Onno hier, hallo
     it('should navigate to the loging page', () => {
         //visit the loginpage
         cy.visit('https://app.walterliving.com/login')
