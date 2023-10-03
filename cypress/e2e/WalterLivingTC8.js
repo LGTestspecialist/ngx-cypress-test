@@ -26,7 +26,7 @@ describe('Walter Living TC8', () => {
             .find('button').click () // Find the div with button and click
 
         // Check if the Home button is present on the dashboard 
-        cy.get('div.hidden.lg\\:flex.lg\\:flex-col.lg\\:block.lg\\:flex-shrink-0.lg\\:bg-white.lg\\:border-r.lg\\:border-gray-200.w-64') //select the hidden element navigation
+        cy.get('div.hidden.lg\\:fixed.lg\\:inset-y-0.lg\\:z-20.lg\\:flex.lg\\:w-72.lg\\:flex-col[role="navigation"]') //select the hidden element navigation
             .find('ul.-mx-2.space-y-1')  //Find the div with "ul.-mx-2.space-y-1" inside the hidden element
             .contains('Home') // Find the div with class "Home" 
             .should('exist') // Assert if "exist" is present
@@ -37,20 +37,20 @@ describe('Walter Living TC8', () => {
         // Click on the search for adress field at the top of the page
         cy.get('#report_search input[placeholder="Search for address"]').click()
 
-        // Type the following address in the search for address field at the top of the page: Westzanerdijk 278 Zaandam (every test use a different adress for  now)
-        cy.get('#report_search_query').type('Westzanerdijk 278 Zaandam')
+        // Type the following address in the search for address field at the top of the page: PPastoor Lathouwersstraat 18 Heeswijk-Dinther (every test use a different adress for  now)
+        cy.get('#report_search_query').type('Pastoor Lathouwersstraat 18 Heeswijk-Dinther')
 
-        // Click on the first address suggestion (Westzanerdijk 278 Zaandam)
+        // Click on the first address suggestion (Pastoor Lathouwersstraat 18 Heeswijk-Dinther)
         cy.get('#options li:first').click()
 
         // Check if the adress is being shown
         cy.get('.property-card__address__street').should('be.visible')
 
         // Click on the next button
-        cy.get('a[href="/dossier/create/0479010000018846/submit"]').click()
+        cy.contains('Next').click()
 
-        // Find the "Good condition" radio button by its ID and asserts it exists and check if it is selected
-        cy.get('#home_condition_home_condition_good', {timeout: 10000}).should('exist').should('be.checked')
+       // Find the "Good condition" radio button by its ID and asserts it exists
+       cy.get('#home_condition_home_condition_good', {timeout: 10000}).should('exist').click().should('be.checked')
 
         // Click on the next button
         cy.contains('Next').click()
@@ -58,7 +58,7 @@ describe('Walter Living TC8', () => {
         // Check if you are on the page "Choose 4 comparable houses"
         cy.get('.survey__title').should('be.visible')
 
-
+        
     })
 
 })

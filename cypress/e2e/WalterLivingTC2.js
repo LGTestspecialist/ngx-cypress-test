@@ -26,7 +26,7 @@ describe('Walter Living TC2', () => {
             .find('button').click () // Find the div with button and click
 
         // Check if the Home button is present on the dashboard 
-        cy.get('div.hidden.lg\\:flex.lg\\:flex-col.lg\\:block.lg\\:flex-shrink-0.lg\\:bg-white.lg\\:border-r.lg\\:border-gray-200.w-64') //select the hidden element navigation
+        cy.get('div.hidden.lg\\:fixed.lg\\:inset-y-0.lg\\:z-20.lg\\:flex.lg\\:w-72.lg\\:flex-col[role="navigation"]')  //select the hidden element navigation
             .find('ul.-mx-2.space-y-1')  //Find the div with "ul.-mx-2.space-y-1" inside the hidden element
             .contains('Home') // Find the div with class "Home" 
             .should('exist') // Assert if "exist" is present
