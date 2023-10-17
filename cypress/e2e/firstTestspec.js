@@ -1,4 +1,4 @@
-/// <reference types= cypress  />
+/// <reference types= cypress 
 
 describe('Our first suite', () => {
 
@@ -341,6 +341,7 @@ describe('Our first suite', () => {
         cy.get('tbody tr').first().find('.nb-trash').click()
         cy.on('windows:confirm', () => false)
           
+    
     })
 
  })

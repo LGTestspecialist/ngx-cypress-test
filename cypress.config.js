@@ -3,9 +3,13 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1920,
+  video: false,
   e2e: {
-    baseUrl: 'https://app.walterliving.com/login',
+    baseUrl: 'http://localhost:4200/pages ',
+    excludeSpecPattern: ['**/1-getting-started', '**/2-advanced-examples'],
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
-    excludeSpecPattern: ['**/1-getting-started/*', '**/2-advanced-examples/*']
+    setupNodeEvents(on, config) {
+      //impement node event listeners here
+    },
   },
-})
+});
